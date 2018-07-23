@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+#this is for take regular post
+Route::get('posts', 'PostController@index');
+
+#this is for posting post
+Route::get('posts/store', 'PostController@showStore');
+Route::post('posts/store', 'PostController@store')->name("createPost");
+
+#this is for take three most important post
+Route::get('posts/three', 'PostController@showThree');

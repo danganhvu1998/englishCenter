@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Holy Shit</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope, $http) {
+		    $http.get("http://localhost:8000/api/posts")
+		    .then(function(response) {
+		    	let posts = response.data.data;
+		        $scope.myWelcome = posts[0].title;
+		    });
+		});
+
+	</script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{myWelcome}}</p>
+	</div>
+</body>
+</html>
