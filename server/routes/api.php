@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 #this is for take regular post
-Route::get('posts', 'PostController@index');
+Route::get('posts/show/{type}', 'PostController@index');
 
 #this is for posting post
 Route::get('posts/store', 'PostController@showStore');

@@ -1,17 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Create Blog Laravel</title>
-</head>
-<body>
-	<h1> Testing Creating Blog Ability</h1>
-	<form action="{{route('createPost')}}" method="post">
-		Title: <input type="text" name="title" value="title"><br>
-		Post: <input type="text" name="post" value="body"><br>
-		User_id: <input type="number" name="user_id" value=1><br>
-		Type: <input type="number" name="type" value=1><br>
-		Primary: <input type="number" name="primary" value=1><br>
-		<input type="submit">
-	</form>
-</body>
-</html>
+@extends('layout.main')
+
+@section('content')
+	<h1><strong>Create New Post</strong></h1>
+	{!! Form::open(['action' => 'PostController@store', 'method' => 'POST']) !!}
+		<div class="form-group">
+			{{Form::label('title', "Post Name <required>")}}
+			{{Form::text('title', '', ['class'=>'form-control', 'placeholder'=>'Title'])}}
+		</div>
+		<div class="form-group">
+			{{Form::label('title', "Post Sum Up")}}
+			{{Form::text('sum_up', '', ['class'=>'form-control', 'placeholder'=>'Post Sum Up - Make it short!'])}}
+		</div>
+		<div class="form-group">
+			{{Form::label('title', "Image URL")}}
+			{{Form::text('img_url', '', ['class'=>'form-control', 'placeholder'=>"Paste Image's url here"])}}
+		</div>
+		<div class="form-group">
+			{{Form::label('title', "Post Type")}}
+			{{Form::select('type', [0 => 'Class Update',1 => 'Infomation Update'], 1)}}
+		</div>
+		<div class="form-group">
+			{{Form::label('title', "Primary")}}
+			{{Form::select('primary', [0 => 'Regular Post',1 => 'Important Post', 2 => 'Super Important Post'], 0)}}
+		</div>
+		<div class="form-group">
+			{{Form::label('title', "Post Body <required>")}}
+			{{Form::textarea('post', '', ['class'=>'form-control', 'placeholder'=>'Post Text'])}}
+		</div>
+		{{Form::submit('Post', ['class' => 'btn btn-dark'])}}
+	{!! Form::close() !!}
+@endsection
