@@ -11,6 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//****************************  POST CONTROLLER  ****************************\\
+#this is for posting post
+Route::post('api/posts/store', 'PostController@store');
+
+#this is for editing post
+Route::post('api/posts/edit', 'PostController@edit');
+
+#this is for turning on/off post
+Route::get('api/posts/editStatus/{id}', 'PostController@editStatus');
+
+#this is for posting post
+Route::get('posts/store', 'PostController@showStore');
+
+#this is for editing post
+Route::get('posts/edit/{id}', 'PostController@showEdit');
+
+#this is for show all post
+Route::get('posts/show/{status}/{page}', 'PostController@showIndex');
+
+//****************************  FILE CONTROLLER  ****************************\\
+Route::get('files/store', 'FilesController@showStore');
+Route::post('api/files/store', 'FilesController@store');

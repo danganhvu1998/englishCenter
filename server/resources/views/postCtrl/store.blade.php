@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.app')
 
 @section('content')
 	<h1><strong>Create New Post</strong></h1>
@@ -25,8 +25,9 @@
 		</div>
 		<div class="form-group">
 			{{Form::label('title', "Post Body <required>")}}
-			{{Form::textarea('post', '', ['class'=>'form-control', 'placeholder'=>'Post Text'])}}
+			{{Form::textarea('post', '', ['id'=>'article-ckeditor', 'class'=>'form-control', 'placeholder'=>'Post Text'])}}
 		</div>
 		{{Form::submit('Post', ['class' => 'btn btn-dark'])}}
 	{!! Form::close() !!}
+	
 @endsection

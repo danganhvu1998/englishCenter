@@ -7,26 +7,64 @@ use App\post;
 
 class PostController extends Controller
 {	
-	#this is for take regular post
-    public function index($type, $number){
-		$result = post::orderBy('created_at','desc')
-			->where('type', $type)
-			->where('status', 0)
-    		->select('title', 'sum_up', 'updated_at', 'img_url', 'id')
-    		->paginate($number);
-    	return $result;
+	/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+		//$this->middleware('auth', ['except' => ['index', 'store', 'edit', 'editStatus']]);
+		$this->middleware('auth', ['except' => ['index']]);
     }
-
+	
+	//******************************** WEB ********************************\\
     #this is for posting post
     public function showStore(){
     	return view('postCtrl.store');
-    }
+	}
+	
+	public function showEdit($id){
+		$post = post::where('id', $id)->first();
+		return view('postCtrl.edit')->with('post', $post);
+	}
 
+	public function showIndex($status, $page){
+		$posts = post::orderBy('updated_at','desc')
+			->where('status', $status)
+			->skip(($page-1)*10)
+			->take(10)
+			->get();
+		return view('postCtrl.index')->with('posts', $posts);
+	}
+
+
+
+
+
+
+
+
+	//******************************** API ********************************\\
+	#this is for taking status=1 post
+    public function index($type, $number, $page){
+		$result = post::orderBy('primary','desc')
+			->orderBy('updated_at','desc')
+			->where('type', $type)
+			->where('status', 1)
+    		->select('title', 'sum_up', 'updated_at', 'img_url', 'id', 'primary')
+    		->skip(($page-1)*$number)
+			->take($number)
+			->get();
+    	return $result;
+    }
+	
+	#this is for saving new post
     public function store(request $request){
 		//return $request;
 		$post = new post;
 		//******************************** SET DEFAULT VALUE ********************************\\
-		$post->status = 0;
+		$post->status = 0;//default auto post, can turn off later
 
 		//******************************** SET REQUEST VALUE ********************************\\
 		if(isset($request->title)) $post->title = $request->title;
@@ -34,24 +72,55 @@ class PostController extends Controller
 		if(isset($request->sum_up)) $post->sum_up = $request->sum_up;
 		else $post->sum_up = "GO ENGLISH";
 		if(isset($request->img_url)) $post->img_url = $request->img_url;
-		else $post->img_url = "img_url";
+		else $post->img_url = "http://localhost/img/about/2.jpg";
 		if(isset($request->post)) $post->post = $request->post;
 		else $post->post = "GO ENGLISH";
 		$post->primary = (int)$request->primary;
 		$post->type = (int)$request->type;
 		//******************************** SET TEMPORARY VALUE ********************************\\
 		$post->user_id = 1;
+		$post->save();
 		//return $post;
-    	//return $post->save();
-    	return ["result" => $post->save()];
-    }
+		//return $post->save();
+		return redirect('posts/show/0/1');
+	}
+	
+	#this is for editing post
+	public function edit(request $request){
+		$post = post::where('id', $request->id)->first();
+		if($post==null){
+			return ["result"=>0, "error"=>"Cannot find post"];
+		}
+		post::where('id', $request->id)
+			->update([
+				'title' => $request->title,
+				'sum_up' => $request->sum_up,
+				'img_url' => $request->img_url,
+				'post' => $request->post,
+				'primary' => $request->primary,
+				'type' => $request->type
+			]);
+		if($post->status==0) return redirect('posts/show/0/1');
+		return redirect('posts/show/1/1');
+	}
+
+	public function editStatus($id){
+		$post = post::where('id', $id)->first();
+		post::where('id', $id)
+			->update([
+				'status' => 1-$post->status
+			]);
+		//return 1;
+		if($post->status==0) return redirect('posts/show/1/1');
+		return redirect('posts/show/0/1');
+	}
 }
 /*
 +------------+------------------+------+-----+---------+----------------+
 | Field      | Type             | Null | Key | Default | Extra          |
 +------------+------------------+------+-----+---------+----------------+
 | id         | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-| created_at | timestamp        | YES  |     | NULL    |                |
+| updated_at | timestamp        | YES  |     | NULL    |                |
 | updated_at | timestamp        | YES  |     | NULL    |                |
 | title      | text             | YES  |     | NULL    |                |
 | sum_up     | text             | YES  |     | NULL    |                |

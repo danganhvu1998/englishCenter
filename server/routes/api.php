@@ -18,11 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 #this is for take regular post
-Route::get('posts/show/{type}', 'PostController@index');
+Route::get('posts/show/{type}/{number}/{page}', 'PostController@index');
 
-#this is for posting post
-Route::get('posts/store', 'PostController@showStore');
-Route::post('posts/store', 'PostController@store')->name("createPost");
-
-#this is for take three most important post
-Route::get('posts/three', 'PostController@showThree');
