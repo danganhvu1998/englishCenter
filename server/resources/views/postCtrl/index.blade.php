@@ -39,4 +39,18 @@
         </div>
         <hr>
     @endforeach
+    <div class="row">
+        <div class="col-lg-10 text-center">
+            <a href="/posts/show/{{$status}}/1" class="btn btn-primary">1</a>
+            <div class="btn-group">
+                <a href="/posts/show/{{$status}}/{{$pageNum-2}}" class="btn btn-primary"><<</a>
+                <a href="/posts/show/{{$status}}/{{$pageNum-1}}" class="btn btn-primary"><</a>
+                <a class="btn btn-primary">Current Page: {{$pageNum}}</a>
+                <a href="/posts/show/{{$status}}/{{$pageNum+1}}" class="btn btn-primary">></a>
+                <a href="/posts/show/{{$status}}/{{$pageNum+2}}" class="btn btn-primary">>></a>
+                <a href="/posts/show/{{$status}}/{{$pageNum+5}}" class="btn btn-primary">+5 Pages</a>
+                <a href="/posts/show/{{$status}}/{{$pageNum+10}}" class="btn btn-primary">+10 Pages</a>
+            </div>
+        </div> 
+    </div>
 @endsection

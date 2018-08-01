@@ -36,5 +36,6 @@ Route::get('posts/edit/{id}', 'PostController@showEdit');
 Route::get('posts/show/{status}/{page}', 'PostController@showIndex');
 
 //****************************  FILE CONTROLLER  ****************************\\
-Route::get('files/store', 'FilesController@showStore');
+Route::get('files/store/{page}', 'FilesController@showStore');
+Route::get('/api/files/delete/{id}', 'FilesController@delete');
 Route::post('api/files/store', 'FilesController@store');

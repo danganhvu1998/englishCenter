@@ -34,7 +34,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Upload File</a>
+                        <a class="nav-link js-scroll-trigger" href="/files/store/1">Upload File</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/posts/store">New Post</a>

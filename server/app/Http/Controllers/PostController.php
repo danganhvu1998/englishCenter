@@ -30,12 +30,26 @@ class PostController extends Controller
 	}
 
 	public function showIndex($status, $page){
+		if($page<1) {
+			return redirect('posts/show/'.strval($status).'/1');
+        }
 		$posts = post::orderBy('updated_at','desc')
 			->where('status', $status)
 			->skip(($page-1)*10)
 			->take(10)
 			->get();
-		return view('postCtrl.index')->with('posts', $posts);
+		if(count($posts)==0){
+			$pageNum = post::where('status', $status)->count();
+			$pageNum = intval(($pageNum-1)/10)+1;
+			return redirect('posts/show/'.strval($status).'/'.strval($pageNum));		
+		}
+		$data = array(
+			'posts' => $posts,
+			'status' => $status,
+			'pageNum' => $page
+		);
+		//return $data;
+		return view('postCtrl.index')->with($data);
 	}
 
 

@@ -4,14 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\files;
+use Illuminate\Support\Facades\Storage;
+use DB;
+
 
 class FilesController extends Controller
-{
-    public function showStore(){
-        return view('fileCtrl.store');
+{   
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function showStore($page){
+        if($page<1) {
+            return redirect('files/store/1');
+        }
+        $files = files::orderBy('updated_at','desc')
+			->skip(($page-1)*20)
+			->take(20)
+            ->get();
+        if(count($files)==0 and $page!=1){
+            return redirect('files/store/'.strval(intval((files::count()-1)/20+1)));
+        }
+        $data = array(
+            'files' => $files,
+            'pageNum' => $page
+        );
+        return view('fileCtrl.store')->with($data);
     }
 
     public function store(request $request){
+        $this->validate($request, [
+            'file' => 'max:1999'
+        ]);
+
         if($request->hasFile('file')){
             // Get filename with the extension
             $filenameWithExt = $request->file('file')->getClientOriginalName();
@@ -24,11 +50,21 @@ class FilesController extends Controller
             // Upload Image
             $path = $request->file('file')->storeAs('public/file', $fileNameToStore);
         } else {
-            $fileNameToStore = 'noimage.jpg';
+            return redirect('files/store/1');
         }
         $file = new files;
-        $file->file_url = '/storage/file/'.$fileNameToStore;
+        $file->file_url = $fileNameToStore;
         $file->save();
-        return redirect('posts/show/0/1');
+        return redirect('files/store/1');
+    }
+
+    public function delete($id){
+        $file = files::where('id', $id)->first();
+        if($file == null){
+            return redirect('files/store/1');
+        }
+        Storage::delete('public/file/'.$file->file_url);
+        files::where('id', $id)->delete();
+        return redirect('files/store/1');
     }
 }
