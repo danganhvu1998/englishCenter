@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GO CLASS</title>
+    <title>GO EVENT</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/centerControllerClass.js"></script>
 
   </head>
 
@@ -62,24 +64,24 @@
       <div class="container">
         <div class="intro-text">
           <div class="intro-lead-in">Nice Image Here</div>
-          <div class="intro-heading text-uppercase">Khóa Học - Tài Liệu</div>
+          <div class="intro-heading text-uppercase">Tin Tức</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
         </div>
       </div>
     </header>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" ng-app="myApp" ng-controller="myCtrl" id="myCtrl">
 
       <!-- Heading Row -->
       <div class="row my-4">
         <div class="col-lg-8">
-          <img class="img-fluid rounded" src="http://placehold.it/900x400" alt="">
+          <img class="img-fluid rounded" src="{{mostImportantPort.img_url}}" alt="">
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
-          <h1>Business Name or Tagline</h1>
-          <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
+          <h1>{{mostImportantPort.title}}</h1>
+          <p>{{mostImportantPort.sum_up}}</p>
           <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
         </div>
         <!-- /.col-md-4 -->
@@ -87,78 +89,34 @@
       <!-- /.row -->
 
       <!-- Call to Action Well -->
-      <div class="card text-white bg-secondary my-4 text-center">
+      <div class="card text-white bg-light my-4 text-center">
         <div class="card-body">
-          <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
+          <a class="nav-link js-scroll-trigger" href="test.html">Test thử khả năng Ielts của bạn ngay!</a>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project One</a>
-              </h4>
-              <p class="card-text">Make it shot! Make it shot! Make it shot!</p>
+        <div class="row">
+            <div ng-repeat="post in posts" class="col-lg-4 col-sm-6 portfolio-item">
+              <div class="card h-100">
+                <a href="#"><img height="200" width="500" class="card-img-top" src="{{post.img_url}}" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">{{post.title}}</a>
+                  </h4>
+                  <p class="card-text">{{post.sum_up}}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Two</a>
-              </h4>
-              <p class="card-text">Make it shot! Make it shot! Make it shot!</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Three</a>
-              </h4>
-              <p class="card-text">Make it shot! Make it shot! Make it shot!</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Four</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Five</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Six</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
-            </div>
-          </div>
+        </div>  
+      
+        <hr>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="btn-group">
+                    <a class="btn btn-primary" ng-click="prevPage()"><< Prev</a>
+                    <a class="btn btn-primary" ng-click="nextPage()">Next >></a>
+                </div>
+            </div> 
         </div>
       </div>
       <!-- /.row -->

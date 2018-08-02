@@ -63,10 +63,10 @@ class PostController extends Controller
 	#this is for taking status=1 post
     public function index($type, $number, $page){
 		$result = post::orderBy('primary','desc')
-			->orderBy('updated_at','desc')
+			->orderBy('created_at','desc')
 			->where('type', $type)
 			->where('status', 1)
-    		->select('title', 'sum_up', 'updated_at', 'img_url', 'id', 'primary')
+    		->select('title', 'sum_up', 'created_at', 'img_url', 'id', 'primary')
     		->skip(($page-1)*$number)
 			->take($number)
 			->get();
