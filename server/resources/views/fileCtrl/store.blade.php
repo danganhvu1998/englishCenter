@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-md-4">
 				<a href='http://kyatod.science:8000/storage/file/{{$file->file_url}}'>
-					<img height="150" width="200" src='http://localhost:8000/storage/file/{{$file->file_url}}' alt='{{$file->file_url}}'>
+					<img height="150" width="200" src='http://kyatod.science:8000/storage/file/{{$file->file_url}}' alt='{{$file->file_url}}'>
 				</a>
 			</div>
 			<div class="col-md-7">
