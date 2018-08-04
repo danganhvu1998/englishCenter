@@ -38,7 +38,7 @@ class PostController extends Controller
 			->skip(($page-1)*10)
 			->take(10)
 			->get();
-		if(count($posts)==0){
+		if(count($posts)==0 and $page!=1){
 			$pageNum = post::where('status', $status)->count();
 			$pageNum = intval(($pageNum-1)/10)+1;
 			return redirect('posts/show/'.strval($status).'/'.strval($pageNum));		
@@ -86,7 +86,7 @@ class PostController extends Controller
 		if(isset($request->sum_up)) $post->sum_up = $request->sum_up;
 		else $post->sum_up = "GO ENGLISH";
 		if(isset($request->img_url)) $post->img_url = $request->img_url;
-		else $post->img_url = "http://localhost/img/about/2.jpg";
+		else $post->img_url = "http://kyatod.science/goenglish/img/about/4.jpg";
 		if(isset($request->post)) $post->post = $request->post;
 		else $post->post = "GO ENGLISH";
 		$post->primary = (int)$request->primary;
