@@ -215,10 +215,10 @@
         <div class="row">
             <div ng-repeat="post in posts" class="col-lg-4 col-sm-6 portfolio-item">
               <div class="card h-100">
-                <a href="#"><img height="200" width="500" class="card-img-top" src="{{post.img_url}}" alt=""></a>
+                <a href="post.html?id={{post.id}}#pageContent"><img height="200" width="500" class="card-img-top" src="{{post.img_url}}" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">{{post.title}}</a>
+                    <a href="post.html?id={{post.id}}#pageContent">{{post.title}}</a>
                   </h4>
                   <p class="card-text">{{post.sum_up}}</p>
                 </div>
