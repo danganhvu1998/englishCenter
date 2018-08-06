@@ -15,7 +15,7 @@ class PostController extends Controller
     public function __construct()
     {
 		//$this->middleware('auth', ['except' => ['index', 'store', 'edit', 'editStatus']]);
-		$this->middleware('auth', ['except' => ['index']]);
+		$this->middleware('auth', ['except' => ['index', 'showPostContent']]);
     }
 	
 	//******************************** WEB ********************************\\
@@ -127,6 +127,13 @@ class PostController extends Controller
 		//return 1;
 		if($post->status==0) return redirect('posts/show/1/1');
 		return redirect('posts/show/0/1');
+	}
+
+	public function showPostContent($id){
+		$post = post::where('id', $id)
+			->select('updated_at', 'title', 'sum_up', 'img_url', 'post')
+			->first();
+		return $post;
 	}
 }
 /*
