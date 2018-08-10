@@ -22,3 +22,6 @@ Route::get('posts/show/{type}/{number}/{page}', 'PostController@index');
 
 Route::get('posts/show/content/{id}', 'PostController@showPostContent');
 
+Route::post('clients/', 'clientsController@clientMessTaker');
+
+Route::post('freetest/', 'freeTestController@testResultTaker');

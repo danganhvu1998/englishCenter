@@ -80,7 +80,7 @@
           <p>{{content.sum_up}}</p>
           <hr>
           <div class="text-center">
-            <img height="400" width="900" src="{{content.img_url}}" alt="">
+            <img style='height: 100%; width: 100%; object-fit: contain' src="{{content.img_url}}" alt="">
           </div>
           <hr>
           <div ng-bind-html="renderHtml(content.post)"></div>

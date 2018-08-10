@@ -37,5 +37,13 @@ Route::get('posts/show/{status}/{page}', 'PostController@showIndex');
 
 //****************************  FILE CONTROLLER  ****************************\\
 Route::get('files/store/{page}', 'FilesController@showStore');
+
 Route::get('/api/files/delete/{id}', 'FilesController@delete');
+
 Route::post('api/files/store', 'FilesController@store');
+
+//****************************  TEST RESULT CONTROLLER  ****************************\\
+Route::get('freetest/', 'freeTestController@show');
+
+//****************************  CLIENT MESSAGE CONTROLLER  ****************************\\
+Route::get('clients/', 'clientsController@show');

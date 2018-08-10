@@ -9,7 +9,7 @@ app.controller('myCtrl', function($sce, $scope, $http) {
 		regularExpress = /\[\[\[(\S*)\]\]\]/;
 		replaceRegularExpress = /\[\[\[\S*\]\]\]/;
 		while(regularExpress.exec(postContent)!=null){
-			replacer = '<iframe width="800" height="500" src="'+regularExpress.exec(postContent)[1]+'"></iframe>';
+			replacer = '<iframe style="height: 500px; width: 100%; object-fit: contain" src="'+regularExpress.exec(postContent)[1]+'"></iframe>';
 			postContent = postContent.replace(replaceRegularExpress, replacer);
 		}
 		return postContent;
@@ -17,7 +17,7 @@ app.controller('myCtrl', function($sce, $scope, $http) {
 
 	$scope.takeData = function(){
 		console.log($scope.curType, $scope.curNum, $scope.curPage);
-		let url = "http://kyatod.science:8000/api/posts/show/"+$scope.curType+"/"+$scope.curNum+"/"+$scope.curPage;
+		let url = "http://localhost:8000/api/posts/show/"+$scope.curType+"/"+$scope.curNum+"/"+$scope.curPage;
 		$http.get(url)
 		.then(function(response) {
 			$scope.posts = response.data;
@@ -28,7 +28,7 @@ app.controller('myCtrl', function($sce, $scope, $http) {
 	$scope.postTaker = function(){
 		console.log(/id=(\d*)/.exec(document.URL)[1]);
 		console.log($scope.curType, $scope.curNum, $scope.curPage);
-		let url = "http://kyatod.science:8000/api/posts/show/content/"+/id=(\d*)/.exec(document.URL)[1];
+		let url = "http://localhost:8000/api/posts/show/content/"+/id=(\d*)/.exec(document.URL)[1];
 		$http.get(url)
 		.then(function(response) {
 			$scope.content = response.data;

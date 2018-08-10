@@ -181,7 +181,10 @@ header.masthead {
   -o-background-size: cover;
   background-size: cover;
 }
-
+header.fit {
+  max-width: 100%;
+  max-height: auto;
+}
 header.masthead .intro-text {
   padding-top: 150px;
   padding-bottom: 100px;
