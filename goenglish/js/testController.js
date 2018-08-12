@@ -120,10 +120,10 @@ function submit(data){
         console.log(this.readyState, this.status);
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText);
-            window.location.assign("file:///home/kyatod/githubResource/englishCenter/goenglish/test.html");
+            window.location.assign("http://kyatod.science/test.html");
         }
     };
-    xhttp.open("POST", "http://localhost:8000/api/freetest", true);
+    xhttp.open("POST", "http://kyatod.science:8000/api/freetest", true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     let sendData = "name="+data.name
         +"&phone="+data.phone
