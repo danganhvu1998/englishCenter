@@ -45,6 +45,12 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/posts/show/1/1">Posted Post</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/clients/1">New Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/freetest/1">Test Result</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

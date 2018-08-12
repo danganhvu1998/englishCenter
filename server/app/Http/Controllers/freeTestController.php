@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\freeTest;
+use App\register;
+
 
 class freeTestController extends Controller
-{
+{   
+    public function __construct()
+    {
+		//$this->middleware('auth', ['except' => ['index', 'store', 'edit', 'editStatus']]);
+		$this->middleware('auth', ['except' => ['testResultTaker']]);
+    }
     //test
     public function testResultTaker(request $request){
         //name, phone, subject, submission
@@ -21,5 +28,45 @@ class freeTestController extends Controller
         } else {
             return "Something wrong Please try again later!";
         }
+    }
+
+    public function show($page){
+        if($page<1) {
+			return redirect('freetest/1');
+        }
+        $tests = freeTest::orderBy('score', 'desc')
+			->skip(($page-1)*10)
+			->take(10)
+			->get();
+		if(count($tests)==0 and $page!=1){
+			$pageNum = freeTest::count();
+			$pageNum = intval(($pageNum-1)/10)+1;
+			return redirect('freetest/'.strval($pageNum));		
+		}
+		$data = array(
+			'tests' => $tests,
+			'pageNum' => $page
+		);
+        return view("testCtrl.show")->with($data);
+    }
+
+    public function score($id, $score){
+        $test = freeTest::where('id', $id)->first();
+        if($test==null) return redirect('freetest/1');
+        freeTest::where('id', $id)
+			->update([
+                'score' => (int)$score
+            ]); 
+        
+        if( $test->subject =="listening" or $test->subject =="writing"){
+            $register = new register;
+            $register->name = $test->name;
+            $register->phone = $test->phone;
+            $register->email = "No Information";
+            $register->mess = "Auto message from Test Result. Subject = ".$test->subject."; Score is about ".$score." + (0-1.5)";
+            $register->status = 0;
+            $register->save();
+        }
+        return redirect('freetest/1');
     }
 }

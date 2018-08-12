@@ -59,6 +59,8 @@ class PostController extends Controller
 
 
 
+
+
 	//******************************** API ********************************\\
 	#this is for taking status=1 post
     public function index($type, $number, $page){

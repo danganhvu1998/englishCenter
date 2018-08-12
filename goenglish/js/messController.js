@@ -13,6 +13,8 @@ function sendMessage(){
         alert("Don't be shy. Please tell us how to contact you.");
         return 0;
     } else {
+        if(client.email.length==0) client.email = "No information";
+        if(client.phone.length==0) client.phone = "No information";
         postServer(client);
     }
 }

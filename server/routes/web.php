@@ -43,7 +43,11 @@ Route::get('/api/files/delete/{id}', 'FilesController@delete');
 Route::post('api/files/store', 'FilesController@store');
 
 //****************************  TEST RESULT CONTROLLER  ****************************\\
-Route::get('freetest/', 'freeTestController@show');
+Route::get('freetest/{page}', 'freeTestController@show');
+
+Route::get('freetest/score/{id}/{score}', 'freeTestController@score');
 
 //****************************  CLIENT MESSAGE CONTROLLER  ****************************\\
-Route::get('clients/', 'clientsController@show');
+Route::get('clients/{page}', 'clientsController@show');
+
+Route::get('clients/resolved/{id}', 'clientsController@resolved');

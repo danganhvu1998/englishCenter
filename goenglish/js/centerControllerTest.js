@@ -48,7 +48,11 @@ function submitWrite(){
     }
     student.subject="writing";
     student.submission="Writing 1: "+ writing1+ "                                           <br>\n-------\n<br>                                           Writing 2: "+writing2;
+    //student.submission = student.submission.replace("\n", "<br>");
+    while(student.submission.includes("\n") )
+        student.submission = student.submission.replace("\n", "<br>");
     submit(student);
+    showWrite();
 }
 
 function submitSpeak(){
@@ -62,13 +66,12 @@ function submitSpeak(){
     student.subject="speaking";
     student.submission=speaking;
     submit(student);
+    showSpeak();
 }
 
 function submit(data){
-    console.log(data);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        console.log(this.readyState, this.status);
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText);
         }
@@ -79,6 +82,5 @@ function submit(data){
         +"&phone="+data.phone
         +"&subject="+data.subject
         +"&submission="+data.submission;
-    console.log(sendData);
     xhttp.send(sendData);
 }
