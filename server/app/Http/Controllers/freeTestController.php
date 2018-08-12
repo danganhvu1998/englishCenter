@@ -58,7 +58,7 @@ class freeTestController extends Controller
                 'score' => (int)$score
             ]); 
         
-        if( $test->subject =="listening" or $test->subject =="writing"){
+        if( $test->subject =="speaking" or $test->subject =="writing"){
             $register = new register;
             $register->name = $test->name;
             $register->phone = $test->phone;
