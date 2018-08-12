@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\freeTest;
 
 class HomeController extends Controller
 {

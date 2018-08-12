@@ -67,4 +67,16 @@ class FilesController extends Controller
         files::where('id', $id)->delete();
         return redirect('files/store/1');
     }
+
+    public function banner(request $request){
+        $this->validate($request, [
+            'file' => 'max:1999'
+        ]);
+        if($request->hasFile('file')){
+            $path = $request->file('file')->storeAs('public/file', "banner.jpg");
+        } else {
+            return redirect('home');
+        }
+        return redirect('home');
+    }
 }

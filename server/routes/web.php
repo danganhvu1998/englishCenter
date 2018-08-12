@@ -42,6 +42,9 @@ Route::get('/api/files/delete/{id}', 'FilesController@delete');
 
 Route::post('api/files/store', 'FilesController@store');
 
+Route::post('api/files/banner', 'FilesController@banner');
+
+
 //****************************  TEST RESULT CONTROLLER  ****************************\\
 Route::get('freetest/{page}', 'freeTestController@show');
 
