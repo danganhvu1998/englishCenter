@@ -21,8 +21,9 @@ function postServer(client) {
     //console.log("postServer", client);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
+        console.log(this.readyState, this.status);
         if (this.readyState == 4 && this.status == 200) {
-            //alert(this.responseText);
+            alert(this.responseText);
         }
     };
     xhttp.open("POST", "http://localhost:8000/api/clients", true);
@@ -30,7 +31,7 @@ function postServer(client) {
     let data = "name="+client.name
         +"&phone="+client.phone
         +"&email="+client.email
-        +"&message="+client.message;
+        +"&mess="+client.message;
     console.log(data);
     xhttp.send(data);
 }

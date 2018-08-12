@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegistersTable extends Migration
+class CreateFreeTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateRegistersTable extends Migration
      */
     public function up()
     {
-        Schema::create('registers', function (Blueprint $table) {
+        Schema::create('free_tests', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name');
-            $table->text('email');
-            $table->text('phone');
-            $table->text('mess');
-            $table->integer('status');
+            $table->text("name");
+            $table->text("phone");
+            $table->text("subject");
+            $table->text("submisson");
+            $table->integer("score");
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateRegistersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registers');
+        Schema::dropIfExists('free_tests');
     }
 }
