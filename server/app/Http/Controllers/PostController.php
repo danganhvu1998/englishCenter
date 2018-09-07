@@ -88,7 +88,7 @@ class PostController extends Controller
 		if(isset($request->sum_up)) $post->sum_up = $request->sum_up;
 		else $post->sum_up = "GO ENGLISH";
 		if(isset($request->img_url)) $post->img_url = $request->img_url;
-		else $post->img_url = "http://kyatod.science/goenglish/img/about/4.jpg";
+		else $post->img_url = "http://178.128.211.111/goenglish/img/about/4.jpg";
 		if(isset($request->post)) $post->post = $request->post;
 		else $post->post = "GO ENGLISH";
 		$post->primary = (int)$request->primary;

@@ -7,7 +7,7 @@ app.controller('myCtrl', function($scope, $http) {
 	
 	$scope.takeData = function(){
 		console.log($scope.curType, $scope.curNum, $scope.curPage);
-		let url = "http://kyatod.science:8000/api/posts/show/"+$scope.curType+"/"+$scope.curNum+"/"+$scope.curPage;
+		let url = "http://178.128.211.111:8000/api/posts/show/"+$scope.curType+"/"+$scope.curNum+"/"+$scope.curPage;
 		$http.get(url)
 		.then(function(response) {
 			$scope.posts = response.data;
