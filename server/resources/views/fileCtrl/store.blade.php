@@ -12,7 +12,7 @@
 	@if(count($files)==0)
         <h1><strong>NO files HERE</strong></h1>
 	@endif
-	
+
 	@foreach($files as $file)
         <div class="row">
             <div class="col-md-4">
@@ -43,7 +43,7 @@
 				<a href="/files/store/{{$pageNum+5}}" class="btn btn-primary">+5 Pages</a>
 				<a href="/files/store/{{$pageNum+10}}" class="btn btn-primary">+10 Pages</a>
 			</div>
-		</div> 
+		</div>
 	</div>
 
 @endsection
