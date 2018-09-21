@@ -50,20 +50,23 @@ class freeTestController extends Controller
         return view("testCtrl.show")->with($data);
     }
 
-    public function score($id, $score){
-        $test = freeTest::where('id', $id)->first();
-        if($test==null) return redirect('freetest/1');
+    public function score(request $request){
+        $id = $request->testID;
+        $score = $request->score;
+        $note = $request->note;
         freeTest::where('id', $id)
 			->update([
-                'score' => (int)$score
+                'score' => (int)$score,
+                'note' => $note
             ]); 
         
+        $test = freeTest::where('id', $id)->first();
         if( $test->subject =="speaking" or $test->subject =="writing"){
             $register = new register;
             $register->name = $test->name;
             $register->phone = $test->phone;
             $register->email = "No Information";
-            $register->mess = "Auto message from Test Result. Subject = ".$test->subject."; Score is about ".$score." + (0-1.5)";
+            $register->mess = "Auto message from Test Result. Subject = ".$test->subject."; Score is ".$score."; With note: ".$note;
             $register->status = 0;
             $register->save();
         }

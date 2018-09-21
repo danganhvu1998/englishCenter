@@ -48,7 +48,7 @@ Route::post('api/files/banner', 'FilesController@banner');
 //****************************  TEST RESULT CONTROLLER  ****************************\\
 Route::get('freetest/{page}', 'freeTestController@show');
 
-Route::get('freetest/score/{id}/{score}', 'freeTestController@score');
+Route::post('freetest/score', 'freeTestController@score');
 
 //****************************  CLIENT MESSAGE CONTROLLER  ****************************\\
 Route::get('clients/{page}', 'clientsController@show');

@@ -16,12 +16,12 @@
 	@foreach($files as $file)
         <div class="row">
             <div class="col-md-4">
-				<a href='http://178.128.211.111:8000/storage/file/{{$file->file_url}}'>
-					<img height="150" width="200" src='http://178.128.211.111:8000/storage/file/{{$file->file_url}}' alt='{{$file->file_url}}'>
+				<a href='http://localhost:8000/storage/file/{{$file->file_url}}'>
+					<img height="150" width="200" src='http://localhost:8000/storage/file/{{$file->file_url}}' alt='{{$file->file_url}}'>
 				</a>
 			</div>
 			<div class="col-md-7">
-				http://178.128.211.111:8000/storage/file/{{$file->file_url}}
+				http://localhost:8000/storage/file/{{$file->file_url}}
 			</div>
 			<div class="col-md-1">
 				<a href="/api/files/delete/{{$file->id}}">

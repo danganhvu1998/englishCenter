@@ -28,7 +28,7 @@ function postServer(client) {
             alert(this.responseText);
         }
     };
-    xhttp.open("POST", "http://178.128.211.111:8000/api/clients", true);
+    xhttp.open("POST", "http://localhost:8000/api/clients", true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     let data = "name="+client.name
         +"&phone="+client.phone

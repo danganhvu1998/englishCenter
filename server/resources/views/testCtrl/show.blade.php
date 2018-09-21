@@ -2,44 +2,33 @@
 
 @section('content')
     @if(count($tests)==0)
-        <h1><strong>NO TEST RESULT YEY</strong></h1>
+        <h1><strong>NO TEST RESULT YET</strong></h1>
     @endif  
     @foreach($tests as $test)
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <strong>Created At: {{$test->created_at}}<br></strong>
                 Last Edit At: {{$test->updated_at}}<br>
                 <strong>Name: {{$test->name}}<br></strong>
                 Phone: {{$test->phone}}<br>
                 <strong>Subject: {{$test->subject}}</strong>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 {!!$test->submisson!!}
             </div>
-            <div class="col-md-1">
-                @if($test->score>100)
-                    <a href="/freetest/score/{{$test->id}}/0" class="btn btn-dark">Really?</a>
-                    <a href="/freetest/score/{{$test->id}}/2" class="btn btn-danger">2.0-3.5</a>
-                    <a href="/freetest/score/{{$test->id}}/4" class="btn btn-warning">4.0-5.5</a>
-                    <a href="/freetest/score/{{$test->id}}/6" class="btn btn-primary">6.0-7.5</a>
-                    <a href="/freetest/score/{{$test->id}}/8" class="btn btn-success">8.0-9.0</a>
-                @endif
-                @if($test->score<100)
-                    @if($test->score<2)
-                        <a class="btn btn-dark">Really?</a>
-                    @endif
-                    @if($test->score<4 and $test->score>=2)
-                        <a class="btn btn-danger">2.0-3.5</a>
-                    @endif
-                    @if($test->score<6 and $test->score>=4)
-                        <a class="btn btn-warning">4.0-5.5</a>
-                    @endif
-                    @if($test->score<8 and $test->score>=6)
-                        <a class="btn btn-primary">6.0-7.5</a>
-                    @endif
-                    @if($test->score<10 and $test->score>=8)
-                        <a class="btn btn-success">8.0-9.0</a>
-                    @endif
+            <div class="col-md-3">
+                @if($test->score>90)
+                    {!! Form::open(['action' => 'freeTestController@score', 'method' => 'POST']) !!}
+                        <div class="form-group">
+                            {{Form::hidden('testID', $test->id, ['class'=>'form-control'])}}
+                            {{Form::number('score', '', ['class'=>'form-control', 'placeholder'=>'Score 00(0.0) -> 90(9.0)'])}}
+                            {{Form::textarea('note', '', ['class'=>'form-control', 'placeholder'=>'Any Note?'])}}
+                        </div>
+                        {{Form::submit('Score', ['class' => 'btn btn-dark'])}}
+                    {!! Form::close() !!}
+                @else
+                    <span>Score: {{$test->score}}</span><hr>
+                    <span>Note: {{$test->note}}</span>
                 @endif
             </div>
         </div>
