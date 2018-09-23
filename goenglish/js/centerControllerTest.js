@@ -1,32 +1,36 @@
 var student = {};
 
 function showWrite(){
-    if( document.getElementById("hiddenWrite").style.display == "block"){
-        document.getElementById("hiddenWrite").style.display = "none";
-    } else {
-        document.getElementById("hiddenWrite").style.display = "block";
-    }
+    hideAll();
+    document.getElementById("hiddenWrite").style.display = "block";
 }
 
 function showSpeak(){
-    if( document.getElementById("hiddenSpeak").style.display == "block"){
-        document.getElementById("hiddenSpeak").style.display = "none";
-    } else {
-        document.getElementById("hiddenSpeak").style.display = "block";
-    }
+    hideAll();
+    document.getElementById("hiddenSpeak").style.display = "block";
+}
+
+function showRead(){
+    hideAll();
+    document.getElementById("hiddenRead").style.display = "block";
+}
+
+function showListen(){
+    hideAll();
+    document.getElementById("hiddenListen").style.display = "block";
+}
+
+function hideAll(){
+    document.getElementById("hiddenSpeak").style.display = "none";
+    document.getElementById("hiddenWrite").style.display = "none";
+    document.getElementById("hiddenRead").style.display = "none";
+    document.getElementById("hiddenListen").style.display = "none";
 }
 
 function studentInfo(){
-    if(document.getElementById("studentName").value.length==0){
-        student.name = document.getElementById("studentName1").value;
-    } else {
-        student.name = document.getElementById("studentName").value;
-    }
-    if(document.getElementById("studentPhone").value.length==0){
-        student.phone = document.getElementById("studentPhone1").value;
-    } else {
-        student.phone = document.getElementById("studentPhone").value;
-    }
+    student.name = document.getElementById("studentName").value;
+    student.phone = document.getElementById("studentPhone").value;
+
     if(student.name.length==0 || student.phone.length==0){
         alert("Please tell us your name and number! We only use it when you come to register a class");
         return 0;
@@ -67,6 +71,28 @@ function submitSpeak(){
     student.submission=speaking;
     submit(student);
     showSpeak();
+}
+
+function judgeAnswer(ans, rightAns){
+    ans = ans.toLowerCase().replace(/\s/g, '');
+    rightAns = rightAns.toLowerCase().replace(/\s/g, '');
+    if(ans == rightAns) return 1;
+    return 0;
+}
+
+function submitRead(){
+    if(!studentInfo()) return 0;
+    var result = 0;
+    var rightAns = ["1","FALSE   ","TRUE   ","NOT GIVEN","FALSE   ","TRUE   ","FALSE ","TRUE ","C   ","C  ","B ","A ","D ","C ","C ","A ","B ","B ","C ","A ","C ","B ","A ","brain dead ","sociopathic behaviour ","neocortex ","animal propensities ","C ","D ","B ","E ","A ","Yes  ","Not given ","Not given ","No ","prudent practice ","privatisation policy  ","incentives ","permit" ,"regulatory agency"];
+    for(var i = 1; i<=40; i++){
+        ansID = "r"+i;
+        let ans = document.getElementById(ansID).value;
+        result += judgeAnswer(ans, rightAns[i]);
+    }
+    alert("Your score is "+ result+". Have a good day with Go Language!")
+    student.subject="reading";
+    student.submission= "Score is "+ result +"/40";
+    submit(student);
 }
 
 function submit(data){
