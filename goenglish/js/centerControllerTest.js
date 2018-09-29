@@ -76,6 +76,7 @@ function submitSpeak(){
 function judgeAnswer(ans, rightAns){
     ans = ans.toLowerCase().replace(/\s/g, '');
     rightAns = rightAns.toLowerCase().replace(/\s/g, '');
+    console.log(ans, rightAns);
     if(ans == rightAns) return 1;
     return 0;
 }
@@ -83,7 +84,7 @@ function judgeAnswer(ans, rightAns){
 function submitRead(){
     if(!studentInfo()) return 0;
     var result = 0;
-    var rightAns = ["1","FALSE   ","TRUE   ","NOT GIVEN","FALSE   ","TRUE   ","FALSE ","TRUE ","C   ","C  ","B ","A ","D ","C ","C ","A ","B ","B ","C ","A ","C ","B ","A ","brain dead ","sociopathic behaviour ","neocortex ","animal propensities ","C ","D ","B ","E ","A ","Yes  ","Not given ","Not given ","No ","prudent practice ","privatisation policy  ","incentives ","permit" ,"regulatory agency"];
+    var rightAns = ["1","FALSE   ","TRUE   ","NOT GIVEN","FALSE","TRUE   ","FALSE ","TRUE ","C   ","C  ","B ","A ","D ","C ","C ","A ","B ","B ","C ","A ","C ","B ","A ","brain dead ","sociopathic behaviour ","neocortex ","animal propensities ","C ","D ","B ","E ","A ","Yes  ","Not given ","Not given ","No ","prudent practice ","privatisation policy  ","incentives ","permit" ,"regulatory agency"];
     for(var i = 1; i<=40; i++){
         ansID = "r"+i;
         let ans = document.getElementById(ansID).value;
@@ -91,6 +92,21 @@ function submitRead(){
     }
     alert("Your score is "+ result+". Have a good day with Go Language!")
     student.subject="reading";
+    student.submission= "Score is "+ result +"/40";
+    submit(student);
+}
+
+function submitListen(){
+    if(!studentInfo()) return 0;
+    var result = 0;
+    var rightAns = ["1","mountains", "horse", "gardens", "lunch", "map", "experience", "Ratchesons", "helmet", "shop", "267", "A", "A", "C", "C", "A", "E", "F", "C", "D", "B", "B", "C", "C", "budget", "employment", "safety", "insurance", "dairy", "database", "museum", "damage", "side effects", "bridge", "confusion", "smartphone", "resources", "unnecessary", "chocolate bar", "problem", "market share"];
+    for(var i = 1; i<=40; i++){
+        ansID = "l"+i;
+        let ans = document.getElementById(ansID).value;
+        result += judgeAnswer(ans, rightAns[i]);
+    }
+    alert("Your score is "+ result+". Have a good day with Go Language!")
+    student.subject="listening";
     student.submission= "Score is "+ result +"/40";
     submit(student);
 }

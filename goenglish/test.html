@@ -94,12 +94,14 @@
 
 
       <div id="reading" class="text-center">
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showRead()">Reading Test</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showRead()">Reading IELTS Test</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showRead()">Reading TOEIC Test</a>
       </div>
 
       <hr>
       <div id="listening" class="text-center">
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showListen()">Listening Test</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showListen()">Listening IELTS Test</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showListen()">Listening TOEIC Test</a>
       </div>
 
       <hr>
@@ -232,7 +234,7 @@
       <div id="hiddenRead" style="display: none;">
         <div class="row">
           <div class="col-md-9">
-            <iframe id="iframepdf" src="img/readingIELTS.pdf" width="100%" height="700"></iframe>
+            <iframe id="iframepdfReadingIelts" src="img/testMaterial/readingIELTS.pdf" width="100%" height="700"></iframe>
           </div>
           <div class="col-md-3">
             <div class="input-group">
@@ -280,12 +282,81 @@
             <a class="btn btn-primary btn-small text-uppercase js-scroll-trigger text-center" onclick="submitRead()">Submit</a>
           </div>
         </div>
-
-        <!--Listening IELTS-->
-        <div id="hiddenListen" style="display: none;">
-          In development
+      </div>
+      
+      <!--Listening IELTS-->
+      <div id="hiddenListen" style="display: none;">
+        <div class="text-center">
+          First audio is introduction to the test. 3 following is audio test of section One to Three.<br>
+          <audio controls>
+              <source src="img/testMaterial/Test 5 Section 1.mp3" type="audio/ogg">
+              Your browser does not support the audio element.
+          </audio> <br>
+          <audio controls>
+              <source src="img/testMaterial/Test 5 Section 2.mp3" type="audio/ogg">
+              Your browser does not support the audio element.
+          </audio> 
+          <audio controls>
+              <source src="img/testMaterial/Test 5 Section 3.mp3" type="audio/ogg">
+              Your browser does not support the audio element.
+          </audio> 
+          <audio controls>
+              <source src="img/testMaterial/Test 5 Section 4.mp3" type="audio/ogg">
+              Your browser does not support the audio element.
+          </audio> 
+        </div>
+        <div class="row">
+          <div class="col-md-9">
+            <iframe id="iframepdfListenIelts" src="img/testMaterial/listenIelts.pdf" width="100%" height="700"></iframe>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <input type="text" id="l1" placeholder="1" size="4">
+              <input type="text" id="l2" placeholder="2" size="4">
+              <input type="text" id="l3" placeholder="3" size="4">
+              <input type="text" id="l4" placeholder="4" size="4">
+              <input type="text" id="l5" placeholder="5" size="4">
+              <input type="text" id="l6" placeholder="6" size="4">
+              <input type="text" id="l7" placeholder="7" size="4">
+              <input type="text" id="l8" placeholder="8" size="4">
+              <input type="text" id="l9" placeholder="9" size="4">
+              <input type="text" id="l10" placeholder="10" size="4">
+              <input type="text" id="l11" placeholder="11" size="4">
+              <input type="text" id="l12" placeholder="12" size="4">
+              <input type="text" id="l13" placeholder="13" size="4">
+              <input type="text" id="l14" placeholder="14" size="4">
+              <input type="text" id="l15" placeholder="15" size="4">
+              <input type="text" id="l16" placeholder="16" size="4">
+              <input type="text" id="l17" placeholder="17" size="4">
+              <input type="text" id="l18" placeholder="18" size="4">
+              <input type="text" id="l19" placeholder="19" size="4">
+              <input type="text" id="l20" placeholder="20" size="4">
+              <input type="text" id="l21" placeholder="21" size="4">
+              <input type="text" id="l22" placeholder="22" size="4">
+              <input type="text" id="l23" placeholder="23" size="4">
+              <input type="text" id="l24" placeholder="24" size="4">
+              <input type="text" id="l25" placeholder="25" size="4">
+              <input type="text" id="l26" placeholder="26" size="4">
+              <input type="text" id="l27" placeholder="27" size="4">
+              <input type="text" id="l28" placeholder="28" size="4">
+              <input type="text" id="l29" placeholder="29" size="4">
+              <input type="text" id="l30" placeholder="30" size="4">
+              <input type="text" id="l31" placeholder="31" size="4">
+              <input type="text" id="l32" placeholder="32" size="4">
+              <input type="text" id="l33" placeholder="33" size="4">
+              <input type="text" id="l34" placeholder="34" size="4">
+              <input type="text" id="l35" placeholder="35" size="4">
+              <input type="text" id="l36" placeholder="36" size="4">
+              <input type="text" id="l37" placeholder="37" size="4">
+              <input type="text" id="l38" placeholder="38" size="4">
+              <input type="text" id="l39" placeholder="39" size="4">
+              <input type="text" id="l40" placeholder="40" size="4">
+            </div>
+            <a class="btn btn-primary btn-small text-uppercase js-scroll-trigger text-center" onclick="submitListen()">Submit</a>
+          </div>
         </div>
       </div>
+      
   </section>
   <!-- /.container -->
 
@@ -335,6 +406,23 @@
       </div>
     </div>
   </section>
+
+  <div class="bg-light" id="address">
+    <div class="row">
+      <div class="col-md-4">
+        <b class"text-muted">Address 1: P608 Tòa Golden Land, số 275 Nguyễn Trãi, Thanh Xuân, Hà Nội</b>
+      </div>
+      <div class="col-md-4">
+        <b class"text-muted">Address 2: Số 47, ngõ 91 Nguyễn Chí Thanh, Đống Đa, Hà Nội</b>
+      </div>
+      <div class="col-md-4">
+        <b class"text-muted">Address 3: Hòa Lạc, Thạch Thất, Hà Nội (Cách trường Đại Học FPT chỉ 1km)</b>
+      </div>
+    </div>
+  </div>
+  
+ 
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
