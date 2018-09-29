@@ -102,7 +102,7 @@ function submit(data){
             alert(this.responseText);
         }
     };
-    xhttp.open("POST", "http://localhost:8000/api/freetest", true);
+    xhttp.open("POST", "http://golanguages.edu.vn:8000/api/freetest", true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     let sendData = "name="+data.name
         +"&phone="+data.phone

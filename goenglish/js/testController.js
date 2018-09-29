@@ -120,10 +120,10 @@ function submit(data){
         console.log(this.readyState, this.status);
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText);
-            window.location.assign("http://localhost/test.html");
+            window.location.assign("http://golanguages.edu.vn/test.html");
         }
     };
-    xhttp.open("POST", "http://localhost:8000/api/freetest", true);
+    xhttp.open("POST", "http://golanguages.edu.vn:8000/api/freetest", true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     let sendData = "name="+data.name
         +"&phone="+data.phone
