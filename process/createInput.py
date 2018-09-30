@@ -1,3 +1,3 @@
-for i in range(1,41):
+for i in range(1,101):
     ii = str(i)
-    print('<input type="text" name="r'+ii+' placeholder='+ii+'" size="4">')
+    print('<input type="text" name="lt'+ii+'" placeholder="'+ii+'" size="4">')

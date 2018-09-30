@@ -20,11 +20,23 @@ function showListen(){
     document.getElementById("hiddenListen").style.display = "block";
 }
 
+function showListenToeic(){
+    hideAll();
+    document.getElementById("hiddenListenToeic").style.display = "block";
+}
+
+function showReadingToeic(){
+    hideAll();
+    document.getElementById("hiddenReadingToeic").style.display = "block";
+}
+
 function hideAll(){
     document.getElementById("hiddenSpeak").style.display = "none";
     document.getElementById("hiddenWrite").style.display = "none";
     document.getElementById("hiddenRead").style.display = "none";
     document.getElementById("hiddenListen").style.display = "none";
+    document.getElementById("hiddenReadingToeic").style.display = "none";
+    document.getElementById("hiddenListenToeic").style.display = "none";
 }
 
 function studentInfo(){
@@ -76,7 +88,6 @@ function submitSpeak(){
 function judgeAnswer(ans, rightAns){
     ans = ans.toLowerCase().replace(/\s/g, '');
     rightAns = rightAns.toLowerCase().replace(/\s/g, '');
-    console.log(ans, rightAns);
     if(ans == rightAns) return 1;
     return 0;
 }
@@ -108,6 +119,36 @@ function submitListen(){
     alert("Your score is "+ result+". Have a good day with Go Language!")
     student.subject="listening";
     student.submission= "Score is "+ result +"/40";
+    submit(student);
+}
+
+function submitListenToeic(){
+    if(!studentInfo()) return 0;
+    var result = 0;
+    var rightAns = "1BCAADCDBCCACDCCDDCBCDBAAACDBACDBBACDDBDBDDCAACCDDCCCCBCBADBCACBABCACCACDDABADBCCCBDCBADBDAABDCCDCBAC";
+    for(var i = 1; i<=100; i++){
+        ansID = "lt"+i;
+        let ans = document.getElementById(ansID).value;
+        result += judgeAnswer(ans, rightAns[i]);
+    }
+    alert("Your score is "+ result+". Have a good day with Go Language!")
+    student.subject="listeningToeic";
+    student.submission= "Score is "+ result +"/100";
+    submit(student);
+}
+
+function submitReadToeic(){
+    if(!studentInfo()) return 0;
+    var result = 0;
+    var rightAns = "1ABACCBCDADCCABCABBABACCBBBABABBCCABCCCAABADCABDCCBBABCBACCACBCDDBDDCBDDBBDCACBCDCCBCCBADAACDACBBBBDA";
+    for(var i = 1; i<=100; i++){
+        ansID = "rt"+i;
+        let ans = document.getElementById(ansID).value;
+        result += judgeAnswer(ans, rightAns[i]);
+    }
+    alert("Your score is "+ result+". Have a good day with Go Language!")
+    student.subject="ReadingToeic";
+    student.submission= "Score is "+ result +"/100";
     submit(student);
 }
 
