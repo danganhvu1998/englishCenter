@@ -50,7 +50,7 @@
             <a class="nav-link js-scroll-trigger" href="#about">Khóa Học</a>
           </li>
           <li class="nav-item">
-            
+            <a class="nav-link js-scroll-trigger" href="#material">Tài Liệu</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#content">Tin Tức</a>
@@ -128,7 +128,7 @@
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="class.html#services">Tra Cứu Ngay</a>
         </div>
         <div class="col-lg-6 text-center">
-          <h2 class="section-heading text-uppercase">Khóa Học - Tài Liệu</h2>
+          <h2 class="section-heading text-uppercase">Khóa Học</h2>
         </div>
       </div>
       <div class="row">
@@ -242,6 +242,36 @@
     </div>
   </section>
 
+  <section class="container" id="material">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Tài Liệu</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <input class="form-control" id="studentName" type="text" placeholder="Your Name *" required="required"
+          data-validation-required-message="Please enter your name.">
+      </div>
+      <div class="col-lg-4">
+        <input class="form-control" id="studentPhone" type="text" placeholder="Your Phone *" required="required"
+          data-validation-required-message="Please enter your phone.">
+      </div>
+      <div class="col-lg-4">
+        <input class="form-control" id="studentEmail" type="text" placeholder="Your Email *" required="required"
+          data-validation-required-message="Please enter your email.">
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-md-7 text-center">
+        <br> <h3>Tài liệu ôn luyện thi IELTS từ A->Z</h3>
+      </div>
+      <div class="col-md-5">
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="takeMaterial()">Claim your free text book!</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Team -->
   <section class="bg-light" id="team">
     <div class="container">
@@ -251,78 +281,37 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-            <h4>Kay Garland</h4>
-            <p class="text-muted">Lead Designer</p>
+            <h4>Vũ Minh Trang</h4>
+            <p class="text-muted">Giảng Viên</p>
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
-            <h4>Larry Parker</h4>
-            <p class="text-muted">Lead Marketer</p>
+            <h4>Nguyễn Thị Minh Phương</h4>
+            <p class="text-muted">Giảng Viên</p>
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-            <h4>Diana Pertersen</h4>
-            <p class="text-muted">Lead Developer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        
       </div>
       <div class="text-center">
         <iframe src="https://www.youtube.com/embed/IHOpRJWNY6I" height="700" style='height: 500; width: 100%; object-fit: contain'></iframe> 
@@ -376,7 +365,24 @@
   </section>
 
   <!-- Footer -->
-
+    <div class="bg-light" id="address">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <b class"text-muted">Address 1: P608 Tòa Golden Land, số 275 Nguyễn Trãi, Thanh Xuân, Hà Nội</b>
+      </div>
+      <div class="col-md-4">
+        <b class"text-muted">Address 2: Số 47, ngõ 91 Nguyễn Chí Thanh, Đống Đa, Hà Nội</b>
+      </div>
+      <div class="col-md-4">
+        <b class"text-muted">Address 3: Hòa Lạc, Thạch Thất, Hà Nội (Cách trường Đại Học FPT chỉ 1km)</b>
+      </div>
+    </div>
+    <div class="text-center">
+      <p>Hotline: 0162 652 8618</p>
+      <p>Email: golanguages09@gmail.com</p>
+      <a href="https://www.facebook.com/GO.Languages123/">GO LANGUAGES FANPAGE</a>
+    </div>
+  </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

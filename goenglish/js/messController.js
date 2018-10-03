@@ -19,6 +19,21 @@ function sendMessage(){
     }
 }
 
+function takeMaterial(){
+    let client = {}; 
+    client.name = document.getElementById("studentName").value;
+    client.phone = document.getElementById("studentPhone").value
+    client.email = document.getElementById("studentEmail").value;
+
+    if(client.name.length==0 || client.phone.length==0){
+        alert("Please tell us your name, email and number! We will use it to send you your free textbook!");
+        return 0;
+    }
+    client.message = "Auto Message: Send me textbook via that gmail and phone number!";
+    console.log(client);
+    postServer(client);
+}
+
 function postServer(client) {
     //console.log("postServer", client);
     var xhttp = new XMLHttpRequest();

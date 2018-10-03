@@ -52,7 +52,7 @@
             <a class="nav-link js-scroll-trigger" href="class.html#about">Khóa Học</a>
           </li>
           <li class="nav-item">
-            
+
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="content.html#services">Tin Tức</a>
@@ -79,47 +79,69 @@
   <!-- Page Content -->
   <section id="services">
     <div class="container">
-      <p>Name and phone is required to take the test! We will use it to inform your test result</p>
+      <p>Name, email and phone is required to take the test! We will use it to inform your test result</p>
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
           <input class="form-control" id="studentName" type="text" placeholder="Your Name *" required="required"
             data-validation-required-message="Please enter your name.">
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
           <input class="form-control" id="studentPhone" type="text" placeholder="Your Phone *" required="required"
             data-validation-required-message="Please enter your phone.">
         </div>
-      </div>
-      <hr>
-
-
-      <div id="reading" class="text-center">
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showRead()">Reading IELTS Test</a>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showReadingToeic()">Reading TOEIC
-          Test</a>
-      </div>
-
-      <hr>
-      <div id="listening" class="text-center">
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showListen()">Listening IELTS Test</a>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showListenToeic()">Listening TOEIC
-          Test</a>
-      </div>
-
-      <hr>
-      <div id="writing">
-        <div class="text-center">
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showWrite()">Writing Test</a>
-        </div>
-      </div>
-
-      <hr>
-      <div>
-        <div class="text-center">
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showSpeak()">SpeakingTest</a>
+        <div class="col-lg-4">
+          <input class="form-control" id="studentEmail" type="text" placeholder="Your Email *" required="required"
+            data-validation-required-message="Please enter your email.">
         </div>
       </div>
       <hr>
+
+      <div class="text-center">
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showIelts()">IELTS TEST</a>
+        <hr>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showToeic()">TOEIC TEST</a>
+        <hr>
+      </div>
+
+      <div id="hiddenToeic" style="display: none;">
+        <h3 class="text-center">Test Toeic Free</h3>
+        <div class="text-center">
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showReadingToeic()">Reading Test</a>
+        </div>
+        <hr>
+
+        <div class="text-center">
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showListenToeic()">Listening Test</a>
+        </div>
+        <hr>
+
+      </div>
+      <div id="hiddenIelts" style="display: none;">
+        <h3 class="text-center">Test Ielts Free</h3>
+        <div class="text-center">
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showRead()">Reading Test</a>
+        </div>
+
+        <hr>
+        <div id="listening" class="text-center">
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showListen()">Listening Test</a>
+        </div>
+
+        <hr>
+        <div id="writing">
+          <div class="text-center">
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showWrite()">Writing Test</a>
+          </div>
+        </div>
+
+        <hr>
+        <div>
+          <div class="text-center">
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" onclick="showSpeak()">SpeakingTest</a>
+          </div>
+        </div>
+        <hr>
+      </div>
 
       <!--Speaking IELTS-->
       <div id="hiddenSpeak" style="display: none;">

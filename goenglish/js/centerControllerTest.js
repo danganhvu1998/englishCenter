@@ -1,5 +1,15 @@
 var student = {};
 
+function showIelts(){
+    hideAllAll();
+    document.getElementById("hiddenIelts").style.display = "block";
+}
+
+function showToeic(){
+    hideAllAll();
+    document.getElementById("hiddenToeic").style.display = "block";
+}
+
 function showWrite(){
     hideAll();
     document.getElementById("hiddenWrite").style.display = "block";
@@ -39,12 +49,23 @@ function hideAll(){
     document.getElementById("hiddenListenToeic").style.display = "none";
 }
 
+function hideAllAll(){
+    document.getElementById("hiddenToeic").style.display = "none";
+    document.getElementById("hiddenIelts").style.display = "none";
+    document.getElementById("hiddenSpeak").style.display = "none";
+    document.getElementById("hiddenWrite").style.display = "none";
+    document.getElementById("hiddenRead").style.display = "none";
+    document.getElementById("hiddenListen").style.display = "none";
+    document.getElementById("hiddenReadingToeic").style.display = "none";
+    document.getElementById("hiddenListenToeic").style.display = "none";
+}
+
 function studentInfo(){
     student.name = document.getElementById("studentName").value;
-    student.phone = document.getElementById("studentPhone").value;
+    student.phone = document.getElementById("studentPhone").value+"-"+document.getElementById("studentEmail").value;
 
     if(student.name.length==0 || student.phone.length==0){
-        alert("Please tell us your name and number! We only use it when you come to register a class");
+        alert("Please tell us your name, email and number! We will use it to inform you your test result!");
         return 0;
     }
     return 1;
