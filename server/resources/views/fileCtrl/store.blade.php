@@ -21,7 +21,7 @@
 				</a>
 			</div>
 			<div class="col-md-7">
-				/storage/file/{{$file->file_url}}
+				http://golanguages.edu.vn:8000/storage/file/{{$file->file_url}}
 			</div>
 			<div class="col-md-1">
 				<a href="/api/files/delete/{{$file->id}}">
