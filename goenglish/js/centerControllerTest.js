@@ -122,7 +122,7 @@ function submitRead(){
         let ans = document.getElementById(ansID).value;
         result += judgeAnswer(ans, rightAns[i]);
     }
-    alert("Your score is "+ result+". Have a good day with Go Language!")
+    alert("Your score is "+ result+". Have a good day with Go Languages!")
     student.subject="reading";
     student.submission= "Score is "+ result +"/40";
     submit(student);
@@ -137,7 +137,7 @@ function submitListen(){
         let ans = document.getElementById(ansID).value;
         result += judgeAnswer(ans, rightAns[i]);
     }
-    alert("Your score is "+ result+". Have a good day with Go Language!")
+    alert("Your score is "+ result+". Have a good day with Go Languages!")
     student.subject="listening";
     student.submission= "Score is "+ result +"/40";
     submit(student);
@@ -152,7 +152,7 @@ function submitListenToeic(){
         let ans = document.getElementById(ansID).value;
         result += judgeAnswer(ans, rightAns[i]);
     }
-    alert("Your score is "+ result+". Have a good day with Go Language!")
+    alert("Your score is "+ result+". Have a good day with Go Languages!")
     student.subject="listeningToeic";
     student.submission= "Score is "+ result +"/100";
     submit(student);
@@ -167,7 +167,7 @@ function submitReadToeic(){
         let ans = document.getElementById(ansID).value;
         result += judgeAnswer(ans, rightAns[i]);
     }
-    alert("Your score is "+ result+". Have a good day with Go Language!")
+    alert("Your score is "+ result+". Have a good day with Go Languages!")
     student.subject="ReadingToeic";
     student.submission= "Score is "+ result +"/100";
     submit(student);

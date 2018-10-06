@@ -24,7 +24,7 @@ class freeTestController extends Controller
         $freeTest->submisson = $request->submission;
         $freeTest->score = 200;
         if($freeTest->save()){
-            return "Well received! Have a great day with Go Language! ";
+            return "Well received! Have a great day with Go Languages! ";
         } else {
             return "Something wrong Please try again later!";
         }

@@ -24,7 +24,7 @@ class clientsController extends Controller
         $register->mess = $request->mess;
         $register->status = 0;
         if($register->save()){
-            return "Well received! We will contact you as soon as possible.\nThank you, and have a great day with Go Language! ";
+            return "Well received! We will contact you as soon as possible.\nThank you, and have a great day with Go Languages! ";
         } else {
             return "Something wrong Please try again later!";
         }   
